@@ -2,11 +2,17 @@ import React, { Component } from "react";
 import TodoItem from "./TodoItem";
 
 class Todos extends Component {
-  state = {};
   render() {
     return (
       <ul>
-        <TodoItem todoText="test" />
+        {this.props.todos.map((todo, i) => (
+          <TodoItem
+            todo={todo}
+            todoIndex={i}
+            deleteTodo={this.props.deleteTodo}
+            key={i}
+          />
+        ))}
       </ul>
     );
   }
