@@ -37,10 +37,21 @@ class Todo extends Component {
       });
 
       this.setState({
+        todoInputValue: "",
         todos: newTodos
       });
     }
-  }
+  };
+
+  todoDone = i => {
+    const newTodos = this.state.todos.slice();
+
+    newTodos[i].checked = !(newTodos[i].checked);
+
+    this.setState({
+      todos: newTodos
+    })
+  };
 
   render() {
     return (
@@ -50,7 +61,7 @@ class Todo extends Component {
           updateInput={this.handleUpdate}
           addTodo={this.addTodo}
         />
-        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} todoDone={this.todoDone} />
       </div>
     );
   }
