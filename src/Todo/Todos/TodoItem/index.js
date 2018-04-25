@@ -4,11 +4,21 @@ import "./styles.css";
 const TodoItem = props => {
   return (
     <li>
-      <input className="todo-input" type="checkbox" value={props.todo.checked} onClick={() => props.todoDone(props.todoIndex)} />
+      <input
+        className="todo-input"
+        type="checkbox"
+        checked={props.todo.checked}
+        onClick={() => props.todoDone(props.todoIndex)}
+      />
       <span className={props.todo.checked ? "line-through" : ""}>
         {props.todo.text}
       </span>
-      <span className="todo-close" onClick={() => props.deleteTodo(props.todoIndex)}>X</span>
+      <span
+        className="todo-close"
+        onClick={() => props.deleteTodo(props.todoIndex)}
+      >
+        X
+      </span>
     </li>
   );
 };
